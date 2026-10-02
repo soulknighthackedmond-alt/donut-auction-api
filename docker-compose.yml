@@ -1,0 +1,11 @@
+services:
+  donut-api:
+    build: .
+    container_name: donut-auction-api
+    restart: unless-stopped
+    ports:
+      - "8787:8787"
+    environment:
+      # seconds a query result is reused before hitting donut.auction again
+      CACHE_TTL_SECONDS: "15"
+      DONUT_API_BASE: "https://api.donut.auction"
